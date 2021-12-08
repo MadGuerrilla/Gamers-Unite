@@ -1,0 +1,104 @@
+[
+   {
+      "id":"1100",
+      "title":"Doom",
+      "price":"49.99",
+      "released":"13/05/2016",
+      "genres":[
+         "Action",
+         "Horror",
+         "FPS"
+      ],
+      "devices":[
+         "PC",
+         "PS4",
+         "Xbox One"
+      ],
+      "format":[
+         "disc",
+         "download"
+      ],
+      "images":[
+         {
+            "tile":"doom/tiles/doom_cover_tile.jpg",
+            "hero":""
+         }
+      ],
+      "url":"/doom"
+   },
+   {
+      "id":"2007",
+      "title":"Uncharted 4",
+      "price":"45.99",
+      "released":"10/05/2016",
+      "genres":[
+         "Action",
+         "Adventure",
+         "Platform",
+         "3rd person shooter"
+      ],
+      "devices":[
+         "PS4"
+      ],
+      "format":[
+         "disc"
+      ],
+      "images":[
+         {
+            "tile":"uncharted_4/tiles/uncharted_4_cover_tile.jpg",
+            "hero":""
+         }
+      ],
+      "url":"/uncharted4"
+   },
+   {
+      "id":"2011",
+      "title":"Gears of War 4",
+      "price":"47.99",
+      "released":"11/10/2016",
+      "genres":[
+         "Action",
+         "Horror",
+         "3rd person shooter"
+      ],
+      "devices":[
+         "Xbox One"
+      ],
+      "format":[
+         "disc",
+         "download"
+      ],
+      "images":[
+         {
+            "tile":"gears_of_war_4/tiles/gears_of_war_4_tile.jpg",
+            "hero":""
+         }
+      ],
+      "url":"/gearsofwar4"
+   },
+   {
+      "id":"1996",
+      "title":"Final Fantasy XV",
+      "price":"44.99",
+      "released":"30/09/2016",
+      "genres":[
+         "Action",
+         "RPG"
+      ],
+      "devices":[
+         "PS4",
+         "Xbox One"
+      ],
+      "format":[
+         "disc",
+         "download"
+      ],
+      "images":[
+         {
+            "tile":"final_fantasy_XV/tiles/final_fantasy_XV_tile.jpg",
+            "hero":""
+         }
+      ],
+      "url":"/doom"
+   }
+]

@@ -1,0 +1,42 @@
+{% extends "templates/master.html" %}
+{% block content %}
+<section class="cd-hero">
+  <ul class="cd-hero-slider autoplay">
+    <li>
+      <a href="#"><img src="/dist/images/doom/banner/doom.jpg" alt="Doom"></a>
+    </li>
+    <li>
+      <a href="#"><img src="/dist/images/doom/banner/doom.jpg" alt="Doom"></a>
+    </li>
+  </ul>
+</section>
+<div class="container">
+  <select class="selectpicker">
+    <option>Mustard</option>
+    <option>Ketchup</option>
+    <option>Relish</option>
+  </select>
+  <div class="row" ng-app="listGamesApp" ng-controller="listGames">
+    <div id="game-tile-{{games.id}}" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 game-tile" ng-repeat="games in game" ng-cloak>
+      <div>
+        <h4 class="col-lg-12">
+            <a href="{{games.url}}">{{games.title}}</a>
+          </h4>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tile-cover">
+          <a href="{{games.url}}">
+            <img src="/dist/images/{{gameImages[games.id].tile}}" alt="{{games.title}}">
+          </a>
+        </div>
+        <h5 class="col-lg-6 col-md-6 col-sm-12 col-xs-6 price">&pound;{{games.price}}</h5>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6 add-to-basket">
+          <button type="button" class="btn btn-success">Add <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
+        </div>
+        <ul class="col-lg-12 col-md-12 col-sm-12 col-xs-12 devices-list">
+          <li class="label" ng-repeat="devices in gameDevices[games.id]">{{devices}}</li>
+        </ul>
+        <small class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hide">{{gameGenres[games.id].join(' ')}}</small>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

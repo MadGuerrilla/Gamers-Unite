@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Starter Template for Bootstrap</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+
+</head>
+
+<body>
+
+  <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
+    <a class="navmenu-brand visible-md visible-lg" href="#">Project name</a>
+    <ul class="nav navmenu-nav">
+      <li class="active"><a href="./">Slide in</a></li>
+      <li><a href="../navmenu-push/">Push</a></li>
+      <li><a href="../navmenu-reveal/">Reveal</a></li>
+      <li><a href="../navbar-offcanvas/">Off canvas navbar</a></li>
+    </ul>
+    <ul class="nav navmenu-nav">
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu navmenu-nav">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li class="dropdown-header">Nav header</li>
+          <li><a href="#">Separated link</a></li>
+          <li><a href="#">One more separated link</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="navbar navbar-default navbar-fixed-top hidden-md hidden-lg">
+    <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Project name</a>
+  </div>
+  {% block content %}{% endblock %}
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>
+    window.jQuery || document.write('<script src="/assets/js/vendor/jquery.min.js"><\/script>')
+  </script>
+  <script src="/dist/js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+  <script>
+    var listGamesApp = angular.module('listGamesApp', []);
+    listGamesApp.controller('listGames', function listGames($scope, $http) {
+      $url = '/dist/json/games.json';
+      $http({
+        method: 'GET',
+        url: $url
+      }).then(function mySucces(response) {
+        $items = response.data;
+        $scope.game = [];
+        $scope.gameImages = [{}];
+        $scope.gameDevices = [{}];
+        $scope.gameGenres = [{}];
+
+        angular.forEach($items, function(data, key) {
+          $scope.game.push(data);
+        });
+
+        // Get Game images
+        angular.forEach($scope.game, function(data, key) {
+          $scope.gameImages[data.id] = data.images[0];
+        });
+
+        // Get Game Devices
+        angular.forEach($scope.game, function(data, key) {
+          $scope.gameDevices[data.id] = data.devices;
+        });
+
+        // Get Game Genres
+        angular.forEach($scope.game, function(data, key) {
+          $scope.gameGenres[data.id] = data.genres;
+        });
+      }, function myError(response) {
+        console.warn(response.statusText + ' ' + $url);
+      });
+    });
+  </script>
+  <script src="/assets/js/hero-slider.js"></script>
+  <script src="/assets/js/custom.js"></script>
+</body>
+
+</html>
